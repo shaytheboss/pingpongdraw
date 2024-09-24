@@ -3,14 +3,15 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(data => {
             const matchWinners = {};
+            const matchLosers = {};
 
-            // Update matches and collect winners
+            // Update matches and collect winners and losers
             for (let i = 1; i <= 32; i++) {
                 updateMatch(i, data);
             }
 
-            // Propagate winners to next matches
-            propagateWinners();
+            // After updating all matches, propagate winners and losers
+            propagateResults();
 
             function updateMatch(matchNumber, data) {
                 const matchId = `match-${matchNumber}`;
@@ -24,17 +25,28 @@ document.addEventListener("DOMContentLoaded", function() {
                     const result = data[matchNumber];
 
                     if (result && result !== "") {
-                        winnerElement.textContent = result;
+                        winnerElement.textContent = `מנצח: ${result}`;
                         winnerElement.style.display = 'block';
+
+                        // Determine the loser
+                        let loser;
+                        if (team1Element.textContent === result) {
+                            loser = team2Element.textContent;
+                        } else {
+                            loser = team1Element.textContent;
+                        }
+
                         matchWinners[matchNumber] = result;
+                        matchLosers[matchNumber] = loser;
                     } else {
                         winnerElement.style.display = 'none';
                     }
                 }
             }
 
-            function propagateWinners() {
-                const nextMatches = {
+            function propagateResults() {
+                // Mapping for winners
+                const nextMatchesWinners = {
                     1: { next: 18, position: 'team1' },
                     12: { next: 18, position: 'team2' },
                     2: { next: 19, position: 'team1' },
@@ -67,9 +79,26 @@ document.addEventListener("DOMContentLoaded", function() {
                     31: { next: 32, position: 'team2' },
                 };
 
+                // Mapping for losers
+                const nextMatchesLosers = {
+                    1: { next: 12, position: 'team1' },
+                    2: { next: 12, position: 'team2' },
+                    3: { next: 13, position: 'team1' },
+                    4: { next: 13, position: 'team2' },
+                    5: { next: 14, position: 'team1' },
+                    6: { next: 14, position: 'team2' },
+                    7: { next: 15, position: 'team1' },
+                    8: { next: 15, position: 'team2' },
+                    9: { next: 16, position: 'team1' },
+                    10: { next: 16, position: 'team2' },
+                    11: { next: 17, position: 'team1' },
+                    // Match 17 loser does not proceed further
+                };
+
+                // Propagate winners
                 for (const matchNum in matchWinners) {
                     const winnerName = matchWinners[matchNum];
-                    const nextMatchInfo = nextMatches[matchNum];
+                    const nextMatchInfo = nextMatchesWinners[matchNum];
 
                     if (nextMatchInfo) {
                         const nextMatchElement = document.getElementById(`match-${nextMatchInfo.next}`);
@@ -77,6 +106,22 @@ document.addEventListener("DOMContentLoaded", function() {
                             const teamElement = nextMatchElement.querySelector(`.${nextMatchInfo.position}`);
                             if (teamElement) {
                                 teamElement.textContent = winnerName;
+                            }
+                        }
+                    }
+                }
+
+                // Propagate losers
+                for (const matchNum in matchLosers) {
+                    const loserName = matchLosers[matchNum];
+                    const nextMatchInfo = nextMatchesLosers[matchNum];
+
+                    if (nextMatchInfo) {
+                        const nextMatchElement = document.getElementById(`match-${nextMatchInfo.next}`);
+                        if (nextMatchElement) {
+                            const teamElement = nextMatchElement.querySelector(`.${nextMatchInfo.position}`);
+                            if (teamElement && teamElement.textContent.includes('מפסיד משחק')) {
+                                teamElement.textContent = loserName;
                             }
                         }
                     }
