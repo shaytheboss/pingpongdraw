@@ -2,34 +2,49 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>טורניר - הגרלת משחקים</title>
+    <title>הגרלת הטורניר</title>
     <link rel="stylesheet" href="styles.css">
     <script src="tournament.js" defer></script>
 </head>
 <body>
+    <!-- Dropdown Menu -->
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">תפריט</button>
+            <div class="dropdown-content">
+                <a href="index.html">הגרלת הטורניר</a>
+                <a href="rules.html">תקנון</a>
+            </div>
+        </div>
+    </div>
+
     <h1>הגרלת משחקים לטורניר</h1>
     <div class="bracket-grid">
-        <!-- First Round (Matches 1-11) -->
+        <!-- First Round -->
         <div class="round">
             <h2>סיבוב ראשון</h2>
+            <!-- Match 1 -->
             <div id="match-1" class="match">
                 <div class="game-number">משחק 1</div>
                 <div class="team">איה ומוטי</div>
                 <div class="team">אלכס ואבלין</div>
                 <div class="winner">מנצח</div>
             </div>
+            <!-- Match 2 -->
             <div id="match-2" class="match">
                 <div class="game-number">משחק 2</div>
                 <div class="team">דביר ודניאלה</div>
                 <div class="team">אור ומירית</div>
                 <div class="winner">מנצח</div>
             </div>
+            <!-- Continue this for Matches 3-11 -->
             <div id="match-3" class="match">
                 <div class="game-number">משחק 3</div>
                 <div class="team">זיו ומיטל</div>
                 <div class="team">נועם ורביד</div>
                 <div class="winner">מנצח</div>
             </div>
+            <!-- Continue for Matches 4-11 -->
             <div id="match-4" class="match">
                 <div class="game-number">משחק 4</div>
                 <div class="team">דני ואיריס</div>
@@ -92,6 +107,7 @@
                 <div class="team">מפסיד משחק 2</div>
                 <div class="winner">מנצח</div>
             </div>
+            <!-- Continue for Matches 13-17 -->
             <div id="match-13" class="match">
                 <div class="game-number">משחק 13</div>
                 <div class="team">מפסיד משחק 3</div>
@@ -124,7 +140,7 @@
             </div>
         </div>
 
-        <!-- Round of 16 (Matches 18-25) -->
+        <!-- Round of 16 -->
         <div class="round">
             <h2>סיבוב שלישי - 16 האחרונות</h2>
             <div id="match-18" class="match">
@@ -177,7 +193,7 @@
             </div>
         </div>
 
-        <!-- Quarterfinals (Matches 26-29) -->
+        <!-- Quarterfinals -->
         <div class="round">
             <h2>רבע הגמר</h2>
             <div id="match-26" class="match">
@@ -206,7 +222,7 @@
             </div>
         </div>
 
-        <!-- Semifinals (Matches 30-31) -->
+        <!-- Semifinals -->
         <div class="round">
             <h2>חצי הגמר</h2>
             <div id="match-30" class="match">
@@ -223,7 +239,7 @@
             </div>
         </div>
 
-        <!-- Final (Match 32) -->
+        <!-- Final -->
         <div class="round">
             <h2>גמר</h2>
             <div id="match-32" class="match">
