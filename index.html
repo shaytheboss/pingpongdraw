@@ -1,176 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ping Pong Tournament Bracket - First Round</title>
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            text-align: center;
-            color: #ffcc00;
-            font-size: 36px;
-            margin: 20px 0;
-        }
-
-        .bracket-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        .bracket {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            padding: 20px;
-            max-width: 1000px;
-        }
-
-        /* Match Styling */
-        .match {
-            background-color: #333;
-            border: 2px solid #ffcc00;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .match::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: -15px;
-            width: 10px;
-            height: 2px;
-            background-color: #ffcc00;
-            transform: translateY(-50%);
-        }
-
-        .match-title {
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .team {
-            font-size: 20px;
-            color: #fff;
-            margin: 10px 0;
-        }
-
-        .team-number {
-            background-color: #ffcc00;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .bracket {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>טורניר - הגרלת משחקים</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h1>Ping Pong Tournament - First Round</h1>
-
-    <div class="bracket-container">
-        <div class="bracket">
-            <!-- Match 1 -->
-            <div class="match">
-                <div class="match-title">Match 1</div>
-                <div class="team"><span class="team-number">1</span> ברק וצליל</div>
-                <div class="team"><span class="team-number">2</span> דני ואיריס</div>
+    <h1>הגרלת משחקים לטורניר</h1>
+    <div class="bracket">
+        <!-- First Round -->
+        <div class="round first-round">
+            <h2>סיבוב ראשון</h2>
+            <div class="matchup">
+                <div class="team team-top">איה ומוטי</div>
+                <div class="team team-bottom">אלכס ואבלין</div>
             </div>
-
-            <!-- Match 2 -->
-            <div class="match">
-                <div class="match-title">Match 2</div>
-                <div class="team"><span class="team-number">3</span> אלכס ואיווטה</div>
-                <div class="team"><span class="team-number">4</span> אביעד וטטי</div>
+            <div class="matchup">
+                <div class="team team-top">דביר ודניאלה</div>
+                <div class="team team-bottom">אור ומירית</div>
             </div>
-
-            <!-- Match 3 -->
-            <div class="match">
-                <div class="match-title">Match 3</div>
-                <div class="team"><span class="team-number">5</span> איה ומוטי</div>
-                <div class="team"><span class="team-number">6</span> גל ומתן</div>
-            </div>
-
-            <!-- Match 4 -->
-            <div class="match">
-                <div class="match-title">Match 4</div>
-                <div class="team"><span class="team-number">7</span> רפאל ונעמה</div>
-                <div class="team"><span class="team-number">8</span> גיטה ודיוויד</div>
-            </div>
-
-            <!-- Match 5 -->
-            <div class="match">
-                <div class="match-title">Match 5</div>
-                <div class="team"><span class="team-number">9</span> חן ושרית</div>
-                <div class="team"><span class="team-number">10</span> זיו ומיטל</div>
-            </div>
-
-            <!-- Match 6 -->
-            <div class="match">
-                <div class="match-title">Match 6</div>
-                <div class="team"><span class="team-number">11</span> תלם וחן</div>
-                <div class="team"><span class="team-number">12</span> אור ומירית</div>
-            </div>
-
-            <!-- Match 7 -->
-            <div class="match">
-                <div class="match-title">Match 7</div>
-                <div class="team"><span class="team-number">13</span> אלכס ואבלין</div>
-                <div class="team"><span class="team-number">14</span> רותם ועינב</div>
-            </div>
-
-            <!-- Match 8 -->
-            <div class="match">
-                <div class="match-title">Match 8</div>
-                <div class="team"><span class="team-number">15</span> ודים ודקלה</div>
-                <div class="team"><span class="team-number">16</span> הדר ודקלה</div>
-            </div>
-
-            <!-- Match 9 -->
-            <div class="match">
-                <div class="match-title">Match 9</div>
-                <div class="team"><span class="team-number">17</span> יורי ודנה</div>
-                <div class="team"><span class="team-number">18</span> דביר ודניאלה</div>
-            </div>
-
-            <!-- Match 10 -->
-            <div class="match">
-                <div class="match-title">Match 10</div>
-                <div class="team"><span class="team-number">19</span> גיא וענת</div>
-                <div class="team"><span class="team-number">20</span> אדהם ומיטל</div>
-            </div>
-
-            <!-- Match 11 -->
-            <div class="match">
-                <div class="match-title">Match 11</div>
-                <div class="team"><span class="team-number">21</span> נועם ורביד</div>
-                <div class="team"><span class="team-number">22</span> אמיר ושירים</div>
+            <!-- Add more matchups as per the schedule -->
+            <!-- ... -->
+            <div class="bye">
+                <span>עולים אוטומטית לסיבוב השני: רפאל ונעמה</span>
             </div>
         </div>
+        <!-- Second Round -->
+        <div class="round second-round">
+            <h2>סיבוב שני - מסלול מנצחים</h2>
+            <!-- Winners' Bracket Matchups -->
+            <!-- ... -->
+        </div>
+        <!-- Losers' Bracket -->
+        <div class="round losers-bracket">
+            <h2>מסלול מפסידים - סיבוב שני</h2>
+            <!-- Losers' Bracket Matchups -->
+            <!-- ... -->
+        </div>
+        <!-- Continue with more rounds -->
     </div>
-
 </body>
 </html>
