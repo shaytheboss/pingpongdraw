@@ -8,6 +8,65 @@ body {
     color: #333;
 }
 
+/* Dropdown Menu Styles */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    padding: 10px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    padding: 14px 16px;
+    font-family: inherit;
+    margin: 0;
+    cursor: pointer;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Heading Styles */
 h1, h2 {
     text-align: center;
@@ -27,7 +86,44 @@ h2 {
     color: #555;
 }
 
-/* Bracket Grid Layout */
+/* Rules Page Content */
+.rules-content {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+.rules-content p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.rules-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.rules-content ul li {
+    margin-bottom: 10px;
+    padding-left: 0;
+    font-size: 1rem;
+    position: relative;
+}
+
+.rules-content ul li::before {
+    content: '•';
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Bracket Grid Layout (same as before) */
 .bracket-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 columns on desktop */
@@ -80,10 +176,6 @@ h2 {
     font-weight: 500;
 }
 
-.team:first-of-type {
-    border-top: none;
-}
-
 .winner {
     padding: 8px;
     margin-top: 10px;
@@ -97,7 +189,6 @@ h2 {
     display: none; /* Initially hidden */
 }
 
-/* Bye Notice Styling */
 .bye {
     margin-top: 20px;
     text-align: center;
@@ -108,7 +199,7 @@ h2 {
     border-radius: 8px;
 }
 
-/* Responsiveness for tablets */
+/* Responsiveness for tablets and mobile (same as before) */
 @media (max-width: 1200px) {
     .bracket-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
@@ -123,7 +214,6 @@ h2 {
     }
 }
 
-/* Responsiveness for mobile phones */
 @media (max-width: 800px) {
     .bracket-grid {
         grid-template-columns: 1fr; /* 1 column on mobile */
