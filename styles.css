@@ -11,10 +11,10 @@ h1, h2 {
 
 .bracket-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Adjust the number based on total rounds */
+    grid-template-columns: repeat(5, 1fr); /* Adjust based on total rounds */
     grid-gap: 20px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 
 .round {
@@ -32,20 +32,28 @@ h1, h2 {
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.game-number {
+    background-color: #e0e0e0;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .team {
     padding: 8px;
     text-align: center;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 
-.team:last-child {
-    border-bottom: none;
+.team:first-of-type {
+    border-top: none;
 }
 
 .team:hover {
-    background-color: #e0e0e0;
+    background-color: #e8f0fe;
     cursor: pointer;
 }
 
@@ -55,13 +63,13 @@ h1, h2 {
     font-style: italic;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .bracket-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .bracket-grid {
         grid-template-columns: 1fr;
     }
