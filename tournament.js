@@ -1,13 +1,18 @@
-// JavaScript to update the bracket based on the results.json file
 document.addEventListener("DOMContentLoaded", function() {
+    // Fetch the JSON file containing the results
     fetch('results.json')
         .then(response => response.json())
         .then(data => {
             for (const match in data) {
-                // Update the winner for each match
+                const winner = data[match];
                 const matchElement = document.querySelector(`#match-${match} .winner`);
-                if (matchElement) {
-                    matchElement.textContent = data[match]; // Set the winner's name in the bracket
+                
+                // If there is a winner, display it
+                if (winner) {
+                    matchElement.textContent = winner;
+                    matchElement.style.display = 'block';  // Show the winner row
+                } else {
+                    matchElement.style.display = 'none';  // Hide the winner row if no result
                 }
             }
         })
