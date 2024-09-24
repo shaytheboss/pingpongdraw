@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>טורניר - הגרלת משחקים</title>
@@ -7,37 +7,159 @@
 </head>
 <body>
     <h1>הגרלת משחקים לטורניר</h1>
-    <div class="bracket">
+    <div class="bracket-grid">
         <!-- First Round -->
-        <div class="round first-round">
+        <div class="round">
             <h2>סיבוב ראשון</h2>
-            <div class="matchup">
-                <div class="team team-top">איה ומוטי</div>
-                <div class="team team-bottom">אלכס ואבלין</div>
+            <div class="match">
+                <div class="team">איה ומוטי</div>
+                <div class="team">אלכס ואבלין</div>
             </div>
-            <div class="matchup">
-                <div class="team team-top">דביר ודניאלה</div>
-                <div class="team team-bottom">אור ומירית</div>
+            <div class="match">
+                <div class="team">דביר ודניאלה</div>
+                <div class="team">אור ומירית</div>
             </div>
-            <!-- Add more matchups as per the schedule -->
-            <!-- ... -->
+            <div class="match">
+                <div class="team">זיו ומיטל</div>
+                <div class="team">נועם ורביד</div>
+            </div>
+            <div class="match">
+                <div class="team">דני ואיריס</div>
+                <div class="team">תלם וחן</div>
+            </div>
+            <div class="match">
+                <div class="team">אמיר ושירים</div>
+                <div class="team">חן ושרית</div>
+            </div>
+            <div class="match">
+                <div class="team">הדר ודקלה</div>
+                <div class="team">גל ומתן</div>
+            </div>
+            <div class="match">
+                <div class="team">גיטה ודיוויד</div>
+                <div class="team">גיא וענת</div>
+            </div>
+            <div class="match">
+                <div class="team">ליאור ואירה</div>
+                <div class="team">אדהם ומיטל</div>
+            </div>
+            <div class="match">
+                <div class="team">אלכס ואיווטה</div>
+                <div class="team">ברק וצליל</div>
+            </div>
+            <div class="match">
+                <div class="team">ודים ודקלה</div>
+                <div class="team">רותם ועינב</div>
+            </div>
+            <div class="match">
+                <div class="team">אביעד וטטי</div>
+                <div class="team">יורי ודנה</div>
+            </div>
             <div class="bye">
                 <span>עולים אוטומטית לסיבוב השני: רפאל ונעמה</span>
             </div>
         </div>
-        <!-- Second Round -->
-        <div class="round second-round">
+        <!-- Second Round - Winners' Bracket -->
+        <div class="round">
             <h2>סיבוב שני - מסלול מנצחים</h2>
-            <!-- Winners' Bracket Matchups -->
-            <!-- ... -->
+            <div class="match">
+                <div class="team">מנצח משחק 1</div>
+                <div class="team">מנצח משחק 2</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק 3</div>
+                <div class="team">מנצח משחק 4</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק 5</div>
+                <div class="team">מנצח משחק 6</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק 7</div>
+                <div class="team">מנצח משחק 8</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק 9</div>
+                <div class="team">מנצח משחק 10</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק 11</div>
+                <div class="team">רפאל ונעמה</div>
+            </div>
         </div>
-        <!-- Losers' Bracket -->
-        <div class="round losers-bracket">
-            <h2>מסלול מפסידים - סיבוב שני</h2>
-            <!-- Losers' Bracket Matchups -->
-            <!-- ... -->
+        <!-- Second Round - Losers' Bracket -->
+        <div class="round">
+            <h2>סיבוב שני - מסלול מפסידים</h2>
+            <div class="match">
+                <div class="team">מפסיד משחק 1</div>
+                <div class="team">מפסיד משחק 2</div>
+            </div>
+            <div class="match">
+                <div class="team">מפסיד משחק 3</div>
+                <div class="team">מפסיד משחק 4</div>
+            </div>
+            <div class="match">
+                <div class="team">מפסיד משחק 5</div>
+                <div class="team">מפסיד משחק 6</div>
+            </div>
+            <div class="match">
+                <div class="team">מפסיד משחק 7</div>
+                <div class="team">מפסיד משחק 8</div>
+            </div>
+            <div class="match">
+                <div class="team">מפסיד משחק 9</div>
+                <div class="team">מפסיד משחק 10</div>
+            </div>
+            <div class="match">
+                <div class="team">מפסיד משחק 11</div>
+                <div class="team">--</div>
+            </div>
         </div>
-        <!-- Continue with more rounds -->
+        <!-- Third Round - Re-entry Matches -->
+        <div class="round">
+            <h2>סיבוב שלישי - משחקי חזרה</h2>
+            <div class="match">
+                <div class="team">מנצח מסלול מפסידים 1</div>
+                <div class="team">מפסיד מסלול מנצחים 1</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח מסלול מפסידים 2</div>
+                <div class="team">מפסיד מסלול מנצחים 2</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח מסלול מפסידים 3</div>
+                <div class="team">מפסיד מסלול מנצחים 3</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח מסלול מפסידים 4</div>
+                <div class="team">מפסיד מסלול מנצחים 4</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח מסלול מפסידים 5</div>
+                <div class="team">מפסיד מסלול מנצחים 5</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח מסלול מפסידים 6</div>
+                <div class="team">מפסיד מסלול מנצחים 6</div>
+            </div>
+        </div>
+        <!-- Fourth Round -->
+        <div class="round">
+            <h2>סיבוב רביעי</h2>
+            <div class="match">
+                <div class="team">מנצח משחק Q1</div>
+                <div class="team">מנצח משחק R1</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק Q2</div>
+                <div class="team">מנצח משחק R2</div>
+            </div>
+            <div class="match">
+                <div class="team">מנצח משחק Q3</div>
+                <div class="team">מנצח משחק R3</div>
+            </div>
+        </div>
+        <!-- Continue adding rounds as needed -->
     </div>
 </body>
 </html>
