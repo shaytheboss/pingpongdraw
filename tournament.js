@@ -2,59 +2,90 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('results.json')
         .then(response => response.json())
         .then(data => {
-            // Store the results of each match
-            const results = {};
+            // Object to store match winners
+            const matchWinners = {};
 
-            // Update the bracket and propagate winners
-            for (const match in data) {
-                const winner = data[match];
-                const matchElement = document.querySelector(`#match-${match} .winner`);
+            // Function to update a match
+            function updateMatch(matchNumber) {
+                const matchId = `match-${matchNumber}`;
+                const matchResult = data[matchNumber];
+                const matchElement = document.getElementById(matchId);
 
-                // If there is a winner, update the current match and propagate to the next round
-                if (winner) {
-                    matchElement.textContent = winner;
-                    matchElement.style.display = 'block'; // Show the winner row
-                    
-                    // Store the winner and propagate to the next match
-                    results[`match-${match}`] = winner;
-                    propagateWinner(match, winner);
-                } else {
-                    matchElement.style.display = 'none'; // Hide the winner row if no result
-                }
-            }
+                if (matchElement) {
+                    const winnerElement = matchElement.querySelector('.winner');
+                    const team1Element = matchElement.querySelector('.team1');
+                    const team2Element = matchElement.querySelector('.team2');
 
-            function propagateWinner(match, winner) {
-                // Determine which next match this winner should go to (based on the bracket structure)
-                const nextMatchMapping = {
-                    "1": "18", "12": "18",
-                    "2": "19", "13": "19",
-                    "3": "20", "4": "20",
-                    "5": "21", "14": "21",
-                    "6": "22", "15": "22",
-                    "7": "23", "8": "23",
-                    "9": "24", "16": "24",
-                    "10": "25", "17": "25",
-                    "18": "26", "19": "26",
-                    "20": "27", "21": "27",
-                    "22": "28", "23": "28",
-                    "24": "29", "25": "29",
-                    "26": "30", "27": "30",
-                    "28": "31", "29": "31",
-                    "30": "32", "31": "32"
-                };
-
-                // Check if there is a next match to send the winner to
-                if (nextMatchMapping[match]) {
-                    const nextMatch = nextMatchMapping[match];
-                    const nextMatchElement = document.querySelector(`#match-${nextMatch} .team:first-of-type`);
-
-                    // Ensure the next match element is valid
-                    if (nextMatchElement) {
-                        // Update the first available team slot in the next match
-                        nextMatchElement.textContent = winner;
+                    // Update the winner if available
+                    if (matchResult && matchResult !== "") {
+                        winnerElement.textContent = matchResult;
+                        winnerElement.style.display = 'block';
+                        matchWinners[matchNumber] = matchResult;
+                    } else {
+                        winnerElement.style.display = 'none';
                     }
                 }
             }
+
+            // Update all matches
+            for (let i = 1; i <= 32; i++) {
+                updateMatch(i);
+            }
+
+            // Function to propagate winners to next matches
+            function propagateWinners() {
+                // Mapping of matches to their next match and position
+                const nextMatches = {
+                    1: { next: 18, position: 'team1' },
+                    12: { next: 18, position: 'team2' },
+                    2: { next: 19, position: 'team1' },
+                    13: { next: 19, position: 'team2' },
+                    3: { next: 20, position: 'team1' },
+                    4: { next: 20, position: 'team2' },
+                    5: { next: 21, position: 'team1' },
+                    14: { next: 21, position: 'team2' },
+                    6: { next: 22, position: 'team1' },
+                    15: { next: 22, position: 'team2' },
+                    7: { next: 23, position: 'team1' },
+                    8: { next: 23, position: 'team2' },
+                    9: { next: 24, position: 'team1' },
+                    16: { next: 24, position: 'team2' },
+                    10: { next: 25, position: 'team1' },
+                    17: { next: 25, position: 'team2' },
+                    18: { next: 26, position: 'team1' },
+                    19: { next: 26, position: 'team2' },
+                    20: { next: 27, position: 'team1' },
+                    21: { next: 27, position: 'team2' },
+                    22: { next: 28, position: 'team1' },
+                    23: { next: 28, position: 'team2' },
+                    24: { next: 29, position: 'team1' },
+                    25: { next: 29, position: 'team2' },
+                    26: { next: 30, position: 'team1' },
+                    27: { next: 30, position: 'team2' },
+                    28: { next: 31, position: 'team1' },
+                    29: { next: 31, position: 'team2' },
+                    30: { next: 32, position: 'team1' },
+                    31: { next: 32, position: 'team2' },
+                };
+
+                // Propagate winners
+                for (const [matchNum, winnerName] of Object.entries(matchWinners)) {
+                    const matchNumber = parseInt(matchNum);
+                    const nextMatchInfo = nextMatches[matchNumber];
+                    if (nextMatchInfo) {
+                        const nextMatchElement = document.getElementById(`match-${nextMatchInfo.next}`);
+                        if (nextMatchElement) {
+                            const teamElement = nextMatchElement.querySelector(`.${nextMatchInfo.position}`);
+                            if (teamElement) {
+                                teamElement.textContent = winnerName;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // After all matches are updated, propagate winners
+            propagateWinners();
         })
         .catch(error => console.error('Error loading match results:', error));
 });
