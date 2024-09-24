@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.bracket {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.round {
+    margin: 0 20px;
+}
+
+.matchup {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.team {
+    padding: 10px;
+    text-align: center;
+}
+
+.team-top {
+    border-bottom: 1px solid #ccc;
+}
+
+.team:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.bye {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+}
